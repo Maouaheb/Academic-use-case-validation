@@ -10,9 +10,9 @@
 	</properties>
 	<struct>
 		<and abstract="true" mandatory="true" name="Elearn">
-			<feature name="Platform"/>
-			<feature name="Client Type"/>
-			<feature mandatory="true" name="Authentication System"/>
+			<feature cardinality="ZeroToMany" name="Platform"/>
+			<feature cardinality="ZeroToMany" name="Client Type"/>
+			<feature cardinality="ZeroToMany" name="Authentication System"/>
 			<or attributeList="name" cardinality="ZeroToMany" name="Application Type">
 				<feature name="WebSite"/>
 				<feature name="System"/>
@@ -33,7 +33,7 @@
 				<feature attributeList="isOpenForExternal" cardinality="ZeroToMany" name="Poll"/>
 				<feature cardinality="ZeroToMany" name="Audio Guide"/>
 				<or cardinality="ZeroToMany" name="Agenda">
-					<feature attributeList="predifined" name="Public"/>
+					<feature attributeList="predefined" name="Public"/>
 					<feature attributeList="isImport" name="Personal"/>
 				</or>
 				<feature cardinality="ZeroToMany" name="Streaming"/>
