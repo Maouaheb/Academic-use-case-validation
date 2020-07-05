@@ -11,7 +11,7 @@
 	<struct>
 		<and abstract="true" mandatory="true" name="ElearnVersion">
 			<graphics key="collapsed" value="false"/>
-			<and attributeList="isMandatoryModeule" cardinality="OneToMany" mandatory="true" name="Modules">
+			<and attributeList="isMandatoryModule" cardinality="OneToMany" mandatory="true" name="Modules">
 				<alt cardinality="OneToMany" mandatory="true" name="UserModule">
 					<alt name="Automated">
 						<feature name="ODOO Connector"/>
