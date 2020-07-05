@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="Elearn">
+			<feature name="Platform"/>
+			<feature name="Client Type"/>
+			<feature mandatory="true" name="Authentication System"/>
+			<or attributeList="name" cardinality="ZeroToMany" name="Application Type">
+				<feature name="WebSite"/>
+				<feature name="System"/>
+			</or>
+			<alt cardinality="ZeroToMany" name="License Type">
+				<feature name="Monthly"/>
+				<feature name="Yearly"/>
+			</alt>
+			<and cardinality="OneToOne" mandatory="true" name="Functionality">
+				<feature cardinality="ZeroToMany" name="Ranking System"/>
+				<or cardinality="ZeroToMany" name="Facial Recognition">
+					<feature name="Stress Recognition"/>
+					<feature name="Satisfaction Recognition"/>
+					<feature name="Tiredness Recognition"/>
+				</or>
+				<feature attributeList="forEvaluation" cardinality="ZeroToMany" name="Quiz"/>
+				<feature attributeList="withUserTypesRestriction" cardinality="ZeroToMany" name="Forum"/>
+				<feature attributeList="isOpenForExternal" cardinality="ZeroToMany" name="Poll"/>
+				<feature cardinality="ZeroToMany" name="Audio Guide"/>
+				<or cardinality="ZeroToMany" name="Agenda">
+					<feature attributeList="predifined" name="Public"/>
+					<feature attributeList="isImport" name="Personal"/>
+				</or>
+				<feature cardinality="ZeroToMany" name="Streaming"/>
+				<or attributeList="isTemporary" cardinality="ZeroToMany" name="ChatRoom">
+					<feature name="Chat"/>
+					<feature name="Audio Conference"/>
+					<feature name="Video Conference"/>
+				</or>
+				<feature attributeList="educationalPurpose" cardinality="ZeroToMany" name="File Upload"/>
+			</and>
+		</and>
+	</struct>
+</featureModel>

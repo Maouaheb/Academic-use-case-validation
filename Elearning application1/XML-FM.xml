@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="ElearnVersion">
+			<graphics key="collapsed" value="false"/>
+			<and attributeList="isMandatoryModeule" cardinality="OneToMany" mandatory="true" name="Modules">
+				<alt cardinality="OneToMany" mandatory="true" name="UserModule">
+					<alt name="Automated">
+						<feature name="ODOO Connector"/>
+						<feature name="SQL View Connector"/>
+						<feature name="SAP Connector"/>
+					</alt>
+					<feature name="Manual User Interface"/>
+				</alt>
+				<feature cardinality="ZeroToMany" name="ParentsFollowUpModule"/>
+				<alt cardinality="ZeroToMany" name="Module Planification">
+					<feature name="Planning Type"/>
+					<feature name="Meeting Type"/>
+				</alt>
+				<feature cardinality="ZeroToMany" name="Module Notes"/>
+				<and cardinality="ZeroToMany" name="Chatroom Module">
+					<feature attributeList="isPublic" cardinality="ZeroToMany" name="Chatroom Types"/>
+				</and>
+				<and cardinality="OneToMany" mandatory="true" name="Streaming Module">
+					<and attributeList="isMandatory" cardinality="OneToMany" mandatory="true" name="Streaming Type">
+						<or cardinality="ZeroToMany" name="Course">
+							<feature name="Masterclass"/>
+							<feature name="Interactive"/>
+						</or>
+						<feature cardinality="ZeroToMany" name="Parent Meeting"/>
+					</and>
+				</and>
+				<feature cardinality="ZeroToMany" name="Sondage Module"/>
+				<and cardinality="ZeroToMany" name="Quizz Module">
+					<and attributeList="AuthorizationEnabled" cardinality="ZeroToMany" name="Quizz Type">
+						<or cardinality="OneToMany" mandatory="true" name="Authorization Type">
+							<feature name="Itsme Authorization"/>
+							<feature name="IDCardAuthorization"/>
+						</or>
+						<or cardinality="ZeroToMany" name="Additional Control">
+							<feature name="Declaration"/>
+							<feature name="Video Verifcation"/>
+						</or>
+					</and>
+				</and>
+			</and>
+		</and>
+	</struct>
+</featureModel>

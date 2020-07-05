@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="showhiddenfeatures" value="true"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="TypeReservation">
+			<and cardinality="OneToMany" mandatory="true" name="Plateform">
+				<feature mandatory="true" name="device"/>
+				<alt name="0.124785962547">
+					<feature name="WebApplication"/>
+					<feature name="MobileApplication"/>
+				</alt>
+			</and>
+			<feature attributeList="name" cardinality="OneToMany" mandatory="true" name="TypeTrain"/>
+			<and attributeList="name" cardinality="OneToMany" mandatory="true" name="TypePassenger">
+				<feature cardinality="ZeroToMany" name="ConfidentPerson"/>
+				<and  attributeList="name" cardinality="ZeroToMany" name="Handicap">
+					<or name="0.251478952448523">
+						<feature name="Visual"/>
+						<feature name="Deaf"/>
+						<feature name="Mobility"/>
+					</or>
+					<alt name="0.854752415874587">
+						<feature name="Literacy"/>
+						<feature name="Illeteracy"/>
+					</alt>
+				</and>
+			</and>
+		</and>
+	</struct>
+</featureModel>
