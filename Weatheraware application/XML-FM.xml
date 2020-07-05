@@ -10,32 +10,32 @@
 		<graphics key="layoutalgorithm" value="1"/>
 	</properties>
 	<struct>
-		<and abstract="true" mandatory="true" name="AnnotatedMetamodel.Application">
-			<and cardinality="ZeroToMany" name="AnnotatedMetamodel.Persona">
-               <feature attributeList="name" cardinality="ZeroToMany" name="AnnotatedMetamodel.Disability"/>
+		<and abstract="true" mandatory="true" name="Application">
+			<and cardinality="ZeroToMany" name="Persona">
+               <feature attributeList="name" cardinality="ZeroToMany" name="Disability"/>
                <or name="0.251238952478423">
-					<feature name="AnnotatedMetamodel.Adult"/>
-					<feature name="AnnotatedMetamodel.Young"/>
-					<feature name="AnnotatedMetamodel.Senior"/>
+					<feature name="Adult"/>
+					<feature name="Young"/>
+					<feature name="Senior"/>
 				</or>
 			</and>
-			 <and attributeList="screensize" cardinality="OneToMany" mandatory="true" name="AnnotatedMetamodel.Platform">
-                <feature attributeList="OS" cardinality="OneToMany" mandatory="true" name="AnnotatedMetamodel.HardFeature"/>
+			 <and attributeList="screensize" cardinality="OneToMany" mandatory="true" name="Platform">
+                <feature attributeList="OS" cardinality="OneToOne" mandatory="true" name="HardFeatures"/>
               	<alt name="0.974784522545">
-					<feature name="AnnotatedMetamodel.Desktop"/>
-					<feature name="AnnotatedMetamodel.Tablet"/>
-					<feature name="AnnotatedMetamodel.Phone"/>
+					<feature name="Desktop"/>
+					<feature name="Tablet"/>
+					<feature name="Phone"/>
 				</alt>
 			</and>
-			<or cardinality="ZeroToMany" name="AnnotatedMetamodel.FeatureOffered">
-				<feature name="AnnotatedMetamodel.RoutePlanning"/>
-				<feature name="AnnotatedMetamodel.MicroSocNet"/>
-				<alt name="AnnotatedMetamodel.Positionning">
+			<or cardinality="ZeroToMany" name="FeatureOffered">
+				<feature name="RoutePlanning"/>
+				<feature name="MicroSocNet"/>
+				<alt name="Positionning">
 					<feature name="GPS"/>
 					<feature name="Inside"/>
 				</alt>
-				<feature attributeList="WsApi" name="AnnotatedMetamodel.PointInterest"/>
-				<feature name="AnnotatedMetamodel.WeatherForecast"/>
+				<feature attributeList="WsApi" name="PoInterest"/>
+				<feature name="WeatherForecast"/>
 			</or>
 		</and>
 	</struct>
