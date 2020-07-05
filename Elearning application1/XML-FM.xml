@@ -10,7 +10,6 @@
 	</properties>
 	<struct>
 		<and abstract="true" mandatory="true" name="ElearnVersion">
-			<graphics key="collapsed" value="false"/>
 			<and attributeList="isMandatoryModule" cardinality="OneToMany" mandatory="true" name="Modules">
 				<alt cardinality="OneToMany" mandatory="true" name="UserModule">
 					<alt name="Automated">
